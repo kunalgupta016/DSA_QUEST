@@ -4,22 +4,34 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependency directories
+node_modules/
+
+# Output of `vite build`
+dist/
+dist-ssr/
+
+# Vercel and local environment
+.vercel/
+.env
+.env.*.local
 *.local
 
-# Editor directories and files
+# System files
+.DS_Store
+
+# Editor configs
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-.env
+
+# Optional: Lock files (only if you're switching package managers often)
+package-lock.json
+yarn.lock
