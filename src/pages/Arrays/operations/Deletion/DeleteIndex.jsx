@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const generateArray = (size = 6) =>
   Array.from({ length: size }, () => Math.floor(Math.random() * 90) + 10);
@@ -8,12 +8,13 @@ const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 
 const DeleteIndex = () => {
   const [array, setArray] = useState(generateArray());
-  const [deleteIndex, setDeleteIndex] = useState('');
+  const [deleteIndex, setDeleteIndex] = useState("");
   const [highlight, setHighlight] = useState(null);
   const [deleting, setDeleting] = useState(false);
 
   const handleDelete = async () => {
-    if (deleteIndex === '' || deleteIndex < 0 || deleteIndex >= array.length) return;
+    if (deleteIndex === "" || deleteIndex < 0 || deleteIndex >= array.length)
+      return;
 
     setDeleting(true);
     const newArr = [...array];
@@ -32,37 +33,39 @@ const DeleteIndex = () => {
 
     setHighlight(null);
     setDeleting(false);
-    setDeleteIndex('');
-  };
-
-  const explainInHinglish = () => {
-    alert(`📤 Hinglish Explanation:
-
-Delete at Index ka matlab hai array ke kisi particular index par jo element hai, usse hata dena.
-
-1️⃣ Uske baad wale sabhi elements ko left shift karna padta hai.
-2️⃣ Jaise ek queue me beech se banda hatao to sab peeche waale ek step aage aate hain.
-3️⃣ Time complexity: O(n - index)`);
+    setDeleteIndex("");
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white px-6 py-16">
       <div className="max-w-5xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg border border-red-400">
-
         <h1 className="text-3xl font-bold text-red-400 text-center mb-8">
           🗑️ Delete at Specific Index
         </h1>
 
+        <div className="mb-8 text-center max-w-3xl mx-auto space-y-4">
+          <p className="text-gray-300">
+            <strong>English:</strong> Delete at Specific Index removes the
+            element at the specified position. Elements to the right are shifted
+            to fill the gap.
+          </p>
+          <p className="text-gray-400 italic">
+            <strong>Hinglish:</strong> Delete at Index ka matlab hai array ke
+            kisi particular index par jo element hai, usse hata dena. Uske baad
+            wale sabhi elements ko left shift karna padta hai.
+          </p>
+        </div>
+
         {/* 💻 Code Block */}
         <div className="bg-gray-900 text-green-300 text-sm p-4 rounded-md mb-8 overflow-x-auto">
-<pre>
-{`// Delete at specific index
+          <pre>
+            {`// Delete at specific index
 int arr[100], n = 6, index = 3;
 for (int i = index; i < n - 1; i++) {
     arr[i] = arr[i + 1];
 }
 n--;`}
-</pre>
+          </pre>
         </div>
 
         {/* 📊 Array Boxes */}
@@ -75,7 +78,7 @@ n--;`}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.04 }}
               className={`px-4 py-2 rounded-md text-lg font-bold border
-              ${highlight === idx ? 'bg-yellow-400 text-black border-yellow-300' : 'bg-gray-700 border-gray-600'}`}
+              ${highlight === idx ? "bg-yellow-400 text-black border-yellow-300" : "bg-gray-700 border-gray-600"}`}
             >
               {val}
             </motion.div>
@@ -95,14 +98,14 @@ n--;`}
           <button
             onClick={handleDelete}
             className="bg-red-500 px-5 py-2 rounded-md font-semibold hover:bg-red-600 transition disabled:opacity-50"
-            disabled={deleting || deleteIndex === ''}
+            disabled={deleting || deleteIndex === ""}
           >
             Delete
           </button>
           <button
             onClick={() => {
               setArray(generateArray());
-              setDeleteIndex('');
+              setDeleteIndex("");
               setHighlight(null);
               setDeleting(false);
             }}
@@ -110,16 +113,6 @@ n--;`}
             disabled={deleting}
           >
             Reset Array
-          </button>
-        </div>
-
-        {/* 💬 Hinglish Explain */}
-        <div className="flex justify-center">
-          <button
-            onClick={explainInHinglish}
-            className="bg-yellow-400 text-black px-6 py-2 rounded-md font-semibold hover:bg-yellow-300 transition"
-          >
-            Explain in Hinglish 🧠
           </button>
         </div>
       </div>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const generateArray = (size = 8) =>
   Array.from({ length: size }, () => Math.floor(Math.random() * 10) + 1);
@@ -36,37 +36,35 @@ const SubarraySum = () => {
     setProcessing(false);
   };
 
-  const explainInHinglish = () => {
-    alert(`🧮 Hinglish Explanation:
-
-Subarray Sum ka matlab hai — ek aisa continuous part (subarray) jiska sum given target ke barabar ho.
-
-1️⃣ Start index se end index tak sum calculate karte hain.
-2️⃣ Agar sum == target milta hai, to wahi answer hai.
-3️⃣ Ye brute-force O(n²) approach hai (simple visualization ke liye).
-
-Optimized method: Prefix sum + HashMap O(n)`);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white px-6 py-16">
       <div className="max-w-5xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg border border-pink-400">
-
         <h1 className="text-3xl font-bold text-pink-300 text-center mb-8">
           ➕ Subarray Sum Finder
         </h1>
 
+        <div className="mb-8 text-center max-w-3xl mx-auto space-y-4">
+          <p className="text-gray-300">
+            <strong>English:</strong> Subarray Sum Finder looks for a continuous
+            subarray whose elements sum up to a specific target value.
+          </p>
+          <p className="text-gray-400 italic">
+            <strong>Hinglish:</strong> Subarray Sum ka matlab hai array ka ek
+            continuous hissa dhundna jiska jod (sum) given target ke barabar ho.
+          </p>
+        </div>
+
         {/* 💻 Code Block */}
         <div className="bg-gray-900 text-green-300 text-sm p-4 rounded-md mb-8 overflow-x-auto">
-<pre>
-{`// Brute Force Subarray Sum
+          <pre>
+            {`// Brute Force Subarray Sum
 for i in 0 to n-1:
   sum = 0
   for j in i to n-1:
     sum += arr[j]
     if sum == target:
       return (i, j)`}
-</pre>
+          </pre>
         </div>
 
         {/* 🎯 Input Field */}
@@ -83,8 +81,10 @@ for i in 0 to n-1:
         {/* 📊 Array Display */}
         <div className="flex justify-center gap-3 flex-wrap mb-10">
           {array.map((val, idx) => {
-            let isHighlighted = result && idx >= result.start && idx <= result.end;
-            let isCurrent = highlight.length && idx >= highlight[0] && idx <= highlight[1];
+            let isHighlighted =
+              result && idx >= result.start && idx <= result.end;
+            let isCurrent =
+              highlight.length && idx >= highlight[0] && idx <= highlight[1];
 
             return (
               <motion.div
@@ -94,11 +94,13 @@ for i in 0 to n-1:
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.03 }}
                 className={`px-4 py-2 rounded-md text-lg font-bold border
-                ${isHighlighted
-                    ? 'bg-green-400 text-black border-green-300'
+                ${
+                  isHighlighted
+                    ? "bg-green-400 text-black border-green-300"
                     : isCurrent
-                      ? 'bg-yellow-400 text-black border-yellow-300'
-                      : 'bg-gray-700 border-gray-600'}`}
+                      ? "bg-yellow-400 text-black border-yellow-300"
+                      : "bg-gray-700 border-gray-600"
+                }`}
               >
                 {val}
               </motion.div>
@@ -114,7 +116,9 @@ for i in 0 to n-1:
             </p>
           )}
           {result === "Not Found" && (
-            <p className="text-red-400 text-lg font-semibold">❌ No matching subarray found</p>
+            <p className="text-red-400 text-lg font-semibold">
+              ❌ No matching subarray found
+            </p>
           )}
         </div>
 
@@ -140,17 +144,6 @@ for i in 0 to n-1:
             Reset Array
           </button>
         </div>
-
-        {/* 🧠 Explain */}
-        <div className="flex justify-center">
-          <button
-            onClick={explainInHinglish}
-            className="bg-yellow-400 text-black px-6 py-2 rounded-md font-semibold hover:bg-yellow-300 transition"
-          >
-            Explain in Hinglish 🧠
-          </button>
-        </div>
-
       </div>
     </div>
   );

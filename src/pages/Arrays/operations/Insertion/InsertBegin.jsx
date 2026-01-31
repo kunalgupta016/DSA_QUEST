@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const generateArray = (size = 7) =>
   Array.from({ length: size }, () => Math.floor(Math.random() * 90) + 10);
@@ -8,12 +8,12 @@ const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 
 const InsertBegin = () => {
   const [array, setArray] = useState(generateArray());
-  const [newValue, setNewValue] = useState('');
+  const [newValue, setNewValue] = useState("");
   const [inserting, setInserting] = useState(false);
   const [highlightIndex, setHighlightIndex] = useState(null);
 
   const handleInsert = async () => {
-    if (newValue === '') return;
+    if (newValue === "") return;
     setInserting(true);
     setHighlightIndex(0);
     await sleep(400);
@@ -21,39 +21,41 @@ const InsertBegin = () => {
     const newArr = [parseInt(newValue), ...array];
     setArray(newArr);
     setHighlightIndex(null);
-    setNewValue('');
+    setNewValue("");
     setInserting(false);
-  };
-
-  const explainInHinglish = () => {
-    alert(`📥 Hinglish Explanation:
-
-Insert at Beginning ka matlab hai naya element array ke bilkul shuru me daalna.
-
-1️⃣ Naya value front me insert hota hai.
-2️⃣ Baaki sab elements ek index aage shift ho jaate hain.
-3️⃣ Ye common operation hai — jaise queue me pehle aane wala element.`)
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white px-6 py-16">
       <div className="max-w-4xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg border border-blue-400">
-
         <h1 className="text-3xl font-bold text-blue-400 text-center mb-8">
           📥 Insert at Beginning (Visualizer)
         </h1>
 
+        <div className="mb-8 text-center max-w-3xl mx-auto space-y-4">
+          <p className="text-gray-300">
+            <strong>English:</strong> Insert at Beginning adds a new element to
+            the very start of the array. All existing elements are shifted one
+            index forward.
+          </p>
+          <p className="text-gray-400 italic">
+            <strong>Hinglish:</strong> Insert at Beginning ka matlab hai naya
+            element array ke bilkul shuru me daalna. Naya value front me insert
+            hota hai aur baaki sab elements ek index aage shift ho jaate hain.
+          </p>
+        </div>
+
         {/* 🧠 DSA Code Block */}
         <div className="bg-gray-900 text-green-300 text-sm p-4 rounded-md mb-8 overflow-x-auto">
-<pre>
-{`// Insert at beginning
+          <pre>
+            {`// Insert at beginning
 int arr[100], n = 5, value = 10;
 for (int i = n - 1; i >= 0; i--) {
     arr[i + 1] = arr[i];
 }
 arr[0] = value;
 n++;`}
-</pre>
+          </pre>
         </div>
 
         {/* 🟨 Array Bars */}
@@ -66,7 +68,7 @@ n++;`}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
               className={`px-4 py-2 rounded-md text-lg font-bold border
-              ${highlightIndex === index ? 'bg-yellow-400 text-black border-yellow-300' : 'bg-gray-700 border-gray-600'}`}
+              ${highlightIndex === index ? "bg-yellow-400 text-black border-yellow-300" : "bg-gray-700 border-gray-600"}`}
             >
               {value}
             </motion.div>
@@ -86,14 +88,14 @@ n++;`}
           <button
             onClick={handleInsert}
             className="bg-green-500 px-5 py-2 rounded-md font-semibold hover:bg-green-600 transition disabled:opacity-50"
-            disabled={inserting || newValue === ''}
+            disabled={inserting || newValue === ""}
           >
             Insert
           </button>
           <button
             onClick={() => {
               setArray(generateArray());
-              setNewValue('');
+              setNewValue("");
               setHighlightIndex(null);
               setInserting(false);
             }}
@@ -103,17 +105,6 @@ n++;`}
             Reset Array
           </button>
         </div>
-
-        {/* 💬 Explain */}
-        <div className="flex justify-center">
-          <button
-            onClick={explainInHinglish}
-            className="bg-yellow-400 text-black px-6 py-2 rounded-md font-semibold hover:bg-yellow-300 transition"
-          >
-            Explain in Hinglish 🧠
-          </button>
-        </div>
-
       </div>
     </div>
   );

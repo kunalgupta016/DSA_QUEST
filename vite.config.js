@@ -6,17 +6,15 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [
     tailwindcss(),
-    react()],
-    heme: {
-      extend: {
-        fontFamily: {
-          royal: ['Cinzel', 'serif'],
-        },
-        colors: {
-          royalGold: '#D4AF37',
-          royalDark: '#1A1A1A',
-        },
+    react()
+  ],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
-    
+  },
 })

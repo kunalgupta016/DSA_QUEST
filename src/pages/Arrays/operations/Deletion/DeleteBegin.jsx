@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const generateArray = (size = 6) =>
   Array.from({ length: size }, () => Math.floor(Math.random() * 90) + 10);
@@ -30,34 +30,36 @@ const DeleteBegin = () => {
     setDeleting(false);
   };
 
-  const explainInHinglish = () => {
-    alert(`📤 Hinglish Explanation:
-
-Delete at Beginning ka matlab hai array ka first element hata dena.
-
-1️⃣ Saare elements ko ek index peeche shift karna padta hai.
-2️⃣ Pehla element overwrite ho jaata hai.
-3️⃣ Ye operation costly ho sakta hai (O(n)) because of shifting.`);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white px-6 py-16">
       <div className="max-w-5xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg border border-red-400">
-
         <h1 className="text-3xl font-bold text-red-400 text-center mb-8">
           🗑️ Delete at Beginning (Visualizer)
         </h1>
 
+        <div className="mb-8 text-center max-w-3xl mx-auto space-y-4">
+          <p className="text-gray-300">
+            <strong>English:</strong> Delete at Beginning removes the first
+            element of the array. All subsequent elements are shifted one
+            position back.
+          </p>
+          <p className="text-gray-400 italic">
+            <strong>Hinglish:</strong> Delete at Beginning ka matlab hai array
+            ka first element hata dena. Saare elements ko ek index peeche shift
+            karna padta hai, jisse pehla element overwrite ho jaata hai.
+          </p>
+        </div>
+
         {/* 💻 Code Block */}
         <div className="bg-gray-900 text-green-300 text-sm p-4 rounded-md mb-8 overflow-x-auto">
-<pre>
-{`// Delete from beginning
+          <pre>
+            {`// Delete from beginning
 int arr[100], n = 6;
 for (int i = 0; i < n - 1; i++) {
     arr[i] = arr[i + 1];
 }
 n--;`}
-</pre>
+          </pre>
         </div>
 
         {/* 📊 Array View */}
@@ -70,7 +72,7 @@ n--;`}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.04 }}
               className={`px-4 py-2 rounded-md text-lg font-bold border
-              ${highlightIndex === idx ? 'bg-yellow-400 text-black border-yellow-300' : 'bg-gray-700 border-gray-600'}`}
+              ${highlightIndex === idx ? "bg-yellow-400 text-black border-yellow-300" : "bg-gray-700 border-gray-600"}`}
             >
               {val}
             </motion.div>
@@ -98,17 +100,6 @@ n--;`}
             Reset Array
           </button>
         </div>
-
-        {/* 💬 Explain */}
-        <div className="flex justify-center">
-          <button
-            onClick={explainInHinglish}
-            className="bg-yellow-400 text-black px-6 py-2 rounded-md font-semibold hover:bg-yellow-300 transition"
-          >
-            Explain in Hinglish 🧠
-          </button>
-        </div>
-
       </div>
     </div>
   );

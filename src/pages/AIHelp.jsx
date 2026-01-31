@@ -24,7 +24,7 @@ const AIHelp = () => {
     setInput("");
 
     try {
-      const res = await fetch("/api/gemini.js", {
+      const res = await fetch("/api/gemini", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: input }),
@@ -69,7 +69,10 @@ const AIHelp = () => {
             const isExpanded = expandedIndex === actualIndex;
 
             return (
-              <div key={actualIndex} className="bg-gray-800 rounded-lg shadow-md p-4">
+              <div
+                key={actualIndex}
+                className="bg-gray-800 rounded-lg shadow-md p-4"
+              >
                 <button
                   className="text-left w-full font-semibold text-yellow-300"
                   onClick={() =>

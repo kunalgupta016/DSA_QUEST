@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const generateArray = (size = 12) =>
   Array.from({ length: size }, () => Math.floor(Math.random() * 5) + 1); // small numbers for repeat
@@ -29,37 +29,36 @@ const CountFrequency = () => {
     setCounting(false);
   };
 
-  const explainInHinglish = () => {
-    alert(`🔢 Hinglish Explanation:
-
-Har number kitni baar aaya hai, yeh pata lagane ke liye hum ek frequency map banate hain.
-
-1️⃣ Ek empty object/map lo.
-2️⃣ Array ko traverse karo.
-3️⃣ Har number ko map me add karo aur count badhao.
-4️⃣ End me sabki frequency mil jaati hai.
-
-🧠 Time Complexity: O(n)`);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white px-6 py-16">
       <div className="max-w-5xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg border border-purple-400">
-
         <h1 className="text-3xl font-bold text-purple-300 text-center mb-8">
           🔢 Count Frequency of Each Element
         </h1>
 
+        <div className="mb-8 text-center max-w-3xl mx-auto space-y-4">
+          <p className="text-gray-300">
+            <strong>English:</strong> Count Frequency calculates how many times
+            each element appears in the array. It uses a Map/Object to store
+            counts.
+          </p>
+          <p className="text-gray-400 italic">
+            <strong>Hinglish:</strong> Frequency Count ka matlab hai ye pata
+            lagana ki har number array me kitni baar aaya hai. Hum ek Map ya
+            Frequency Array use karte hain store karne ke liye.
+          </p>
+        </div>
+
         {/* 💻 Code Block */}
         <div className="bg-gray-900 text-green-300 text-sm p-4 rounded-md mb-8 overflow-x-auto">
-<pre>
-{`// Frequency count using map
+          <pre>
+            {`// Frequency count using map
 int arr[100], n;
 unordered_map<int, int> freq;
 for (int i = 0; i < n; i++) {
     freq[arr[i]]++;
 }`}
-</pre>
+          </pre>
         </div>
 
         {/* 📊 Array Display */}
@@ -72,9 +71,11 @@ for (int i = 0; i < n; i++) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.03 }}
               className={`px-4 py-2 rounded-md text-lg font-bold border 
-              ${highlight === idx
-                  ? 'bg-yellow-400 text-black border-yellow-300'
-                  : 'bg-gray-700 border-gray-600'}`}
+              ${
+                highlight === idx
+                  ? "bg-yellow-400 text-black border-yellow-300"
+                  : "bg-gray-700 border-gray-600"
+              }`}
             >
               {val}
             </motion.div>
@@ -84,7 +85,9 @@ for (int i = 0; i < n; i++) {
         {/* 📦 Frequency Map Output */}
         {Object.keys(freqMap).length > 0 && (
           <div className="bg-gray-700 text-white rounded-md p-4 mb-10 max-w-md mx-auto text-center">
-            <h3 className="text-lg font-bold text-purple-300 mb-2">📦 Frequency Table</h3>
+            <h3 className="text-lg font-bold text-purple-300 mb-2">
+              📦 Frequency Table
+            </h3>
             {Object.entries(freqMap).map(([num, count]) => (
               <p key={num} className="text-sm sm:text-base">
                 🔹 <b>{num}</b> occurs <b>{count}</b> time(s)
@@ -115,17 +118,6 @@ for (int i = 0; i < n; i++) {
             Reset Array
           </button>
         </div>
-
-        {/* 🧠 Explain */}
-        <div className="flex justify-center">
-          <button
-            onClick={explainInHinglish}
-            className="bg-yellow-400 text-black px-6 py-2 rounded-md font-semibold hover:bg-yellow-300 transition"
-          >
-            Explain in Hinglish 🧠
-          </button>
-        </div>
-
       </div>
     </div>
   );
