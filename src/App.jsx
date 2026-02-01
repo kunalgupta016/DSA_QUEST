@@ -159,6 +159,37 @@ import RotateMatrix90 from "./pages/Arrays/TwoDArrays/components/RotateMatrix90.
 import SearchMatrix1 from "./pages/Arrays/TwoDArrays/components/SearchMatrix1.jsx";
 import SearchMatrix2 from "./pages/Arrays/TwoDArrays/components/SearchMatrix2.jsx";
 
+// Pointers
+import PointerMenu from "./pages/Pointers/PointerMenu.jsx";
+import PointerBasics from "./pages/Pointers/PointerBasics.jsx";
+import DoublePointers from "./pages/Pointers/DoublePointers.jsx";
+import PointerFunctions from "./pages/Pointers/PointerFunctions.jsx";
+import PointerPractice from "./pages/Pointers/PointerPractice.jsx";
+import GameHome from "./pages/Game/GameHome.jsx";
+import ArrayGameMap from "./pages/Game/Arrays/ArrayGameMap.jsx";
+import Level1 from "./pages/Game/Arrays/levels/Level1.jsx";
+import Level2 from "./pages/Game/Arrays/levels/Level2.jsx";
+import Level3 from "./pages/Game/Arrays/levels/Level3.jsx";
+import Level4 from "./pages/Game/Arrays/levels/Level4.jsx";
+import Level5 from "./pages/Game/Arrays/levels/Level5.jsx";
+import Level6 from "./pages/Game/Arrays/levels/Level6.jsx";
+import Level7 from "./pages/Game/Arrays/levels/Level7.jsx";
+import Level8 from "./pages/Game/Arrays/levels/Level8.jsx";
+import Level9 from "./pages/Game/Arrays/levels/Level9.jsx";
+import Level10 from "./pages/Game/Arrays/levels/Level10.jsx";
+import ArrayModeSelection from "./pages/Game/Arrays/ArrayModeSelection.jsx";
+import ArrayCodeMap from "./pages/Game/Arrays/ArrayCodeMap.jsx";
+import Level1Code from "./pages/Game/Arrays/CodeLevels/Level1Code.jsx";
+import Level2Code from "./pages/Game/Arrays/CodeLevels/Level2Code.jsx";
+import Level3Code from "./pages/Game/Arrays/CodeLevels/Level3Code.jsx";
+import Level4Code from "./pages/Game/Arrays/CodeLevels/Level4Code.jsx";
+import Level5Code from "./pages/Game/Arrays/CodeLevels/Level5Code.jsx";
+import Level6Code from "./pages/Game/Arrays/CodeLevels/Level6Code.jsx";
+import Level7Code from "./pages/Game/Arrays/CodeLevels/Level7Code.jsx";
+import Level8Code from "./pages/Game/Arrays/CodeLevels/Level8Code.jsx";
+import Level9Code from "./pages/Game/Arrays/CodeLevels/Level9Code.jsx";
+import Level10Code from "./pages/Game/Arrays/CodeLevels/Level10Code.jsx";
+
 function App() {
   return (
     <Router>
@@ -166,6 +197,37 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ai-help" element={<AIHelp />} />
+        <Route path="/game" element={<GameHome />} />
+
+        {/* Array Game Sub-Routes */}
+        <Route path="/game/arrays" element={<ArrayModeSelection />} />
+        <Route path="/game/arrays/visual" element={<ArrayGameMap />} />
+        <Route path="/game/arrays/code" element={<ArrayCodeMap />} />
+
+        {/* Visual Levels */}
+        <Route path="/game/arrays/1" element={<Level1 />} />
+        <Route path="/game/arrays/2" element={<Level2 />} />
+        <Route path="/game/arrays/3" element={<Level3 />} />
+        <Route path="/game/arrays/4" element={<Level4 />} />
+        <Route path="/game/arrays/5" element={<Level5 />} />
+        <Route path="/game/arrays/6" element={<Level6 />} />
+        <Route path="/game/arrays/7" element={<Level7 />} />
+        <Route path="/game/arrays/8" element={<Level8 />} />
+        <Route path="/game/arrays/9" element={<Level9 />} />
+        <Route path="/game/arrays/10" element={<Level10 />} />
+
+        {/* Code Levels */}
+        <Route path="/game/arrays/code/1" element={<Level1Code />} />
+        <Route path="/game/arrays/code/2" element={<Level2Code />} />
+        <Route path="/game/arrays/code/3" element={<Level3Code />} />
+        <Route path="/game/arrays/code/4" element={<Level4Code />} />
+        <Route path="/game/arrays/code/5" element={<Level5Code />} />
+        <Route path="/game/arrays/code/6" element={<Level6Code />} />
+        <Route path="/game/arrays/code/7" element={<Level7Code />} />
+        <Route path="/game/arrays/code/8" element={<Level8Code />} />
+        <Route path="/game/arrays/code/9" element={<Level9Code />} />
+        <Route path="/game/arrays/code/10" element={<Level10Code />} />
+
         <Route path="/topics" element={<Topics />} />
 
         {/* Sorting */}
@@ -516,6 +578,13 @@ function App() {
           element={<SubarraySum />}
         />
         <Route path="/arrays/logical/frequency" element={<CountFrequency />} />
+
+        {/* Pointers */}
+        <Route path="/pointers" element={<PointerMenu />} />
+        <Route path="/pointers/basics" element={<PointerBasics />} />
+        <Route path="/pointers/double" element={<DoublePointers />} />
+        <Route path="/pointers/functions" element={<PointerFunctions />} />
+        <Route path="/pointers/practice" element={<PointerPractice />} />
       </Routes>
     </Router>
   );

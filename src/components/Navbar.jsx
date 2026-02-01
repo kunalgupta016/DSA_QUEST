@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { Link } from "react-router";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,11 +19,34 @@ const Navbar = () => {
       >
         ✕
       </button>
-      <Link to="/" onClick={() => setIsOpen(false)} className="hover:text-yellow-300 text-white">Home</Link>
-      <Link to="/topics" onClick={() => setIsOpen(false)} className="hover:text-yellow-300 text-white">Topics</Link>
-      <Link to="/game" onClick={() => setIsOpen(false)} className="hover:text-yellow-300 text-white">Game</Link>
-      <Link to="/ai-help" onClick={() => setIsOpen(false)} className="hover:text-yellow-300 text-white">AI Help</Link>
-      <Link to="/progress" onClick={() => setIsOpen(false)} className="hover:text-yellow-300 text-white">Progress</Link>
+      <Link
+        to="/"
+        onClick={() => setIsOpen(false)}
+        className="hover:text-yellow-300 text-white"
+      >
+        Home
+      </Link>
+      <Link
+        to="/topics"
+        onClick={() => setIsOpen(false)}
+        className="hover:text-yellow-300 text-white"
+      >
+        Topics
+      </Link>
+      <Link
+        to="/game"
+        onClick={() => setIsOpen(false)}
+        className="hover:text-yellow-300 text-white"
+      >
+        Game
+      </Link>
+      <Link
+        to="/ai-help"
+        onClick={() => setIsOpen(false)}
+        className="hover:text-yellow-300 text-white"
+      >
+        AI Help
+      </Link>
     </motion.div>
   );
 
@@ -41,11 +64,31 @@ const Navbar = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-6 text-lg">
-            <Link to="/" className="hover:text-yellow-300 transition duration-300">Home</Link>
-            <Link to="/topics" className="hover:text-yellow-300 transition duration-300">Topics</Link>
-            <Link to="/game" className="hover:text-yellow-300 transition duration-300">Game</Link>
-            <Link to="/ai-help" className="hover:text-yellow-300 transition duration-300">AI Help</Link>
-            <Link to="/progress" className="hover:text-yellow-300 transition duration-300">Progress</Link>
+            <Link
+              to="/"
+              className="hover:text-yellow-300 transition duration-300"
+            >
+              Home
+            </Link>
+            <Link
+              to="/topics"
+              className="hover:text-yellow-300 transition duration-300"
+            >
+              Topics
+            </Link>
+            <Link
+              to="/game"
+              className="hover:text-yellow-300 transition duration-300"
+            >
+              Game
+            </Link>
+            <Link
+              to="/ai-help"
+              className="hover:text-yellow-300 transition duration-300"
+            >
+              AI Help
+            </Link>
+            
           </div>
 
           {/* Mobile Menu Icon */}

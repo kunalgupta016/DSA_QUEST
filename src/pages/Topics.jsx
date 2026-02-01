@@ -16,6 +16,7 @@ const topics = [
   { name: "Graphs", path: "/graphs", color: "bg-yellow-500" },
   { name: "Sorting", path: "/sortinglist", color: "bg-indigo-500" },
   { name: "Searching", path: "/arrays/searching", color: "bg-teal-500" },
+  { name: "Pointers", path: "/pointers", color: "bg-cyan-500" },
 ];
 
 const Topics = () => {
